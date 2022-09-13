@@ -1,4 +1,5 @@
 ![img](imgProject/imgScreen.png)
+
 Il progetto nasce come una piattaforma digitale che raccoglie foto di pinguini e li distribuisce.
 
 ## Sistema simile
