@@ -14,9 +14,12 @@ import org.springframework.web.servlet.view.RedirectView;
 @RequestMapping("/")
 public class RootController {
 
+
     @RequestMapping("/")
     public RedirectView rootMap(){
         return new RedirectView("/swagger-ui/index.html");
     }
+
+
 
 }
