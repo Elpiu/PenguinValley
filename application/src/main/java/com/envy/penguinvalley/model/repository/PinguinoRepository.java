@@ -20,4 +20,10 @@ public interface PinguinoRepository extends JpaRepository<Pinguino, Long> {
             nativeQuery = true
     )
     public List<String> getPinguinoFotoLinks(int number);
+
+    @Query(
+            value = "SELECT * FROM Pinguino WHERE is_disponibile = false",
+            nativeQuery = true
+    )
+    public List<Pinguino> getPinguinoNotDisponibile();
 }
