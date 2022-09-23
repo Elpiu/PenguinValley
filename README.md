@@ -13,3 +13,12 @@ Un sistema simile è DogAPI (https://dog.ceo/dog-api/), una collezione di foto d
 Realizzato con Spring
 
 ![img](imgProject/screencapture-localhost-8090-swagger-ui-index-html-2022-09-13-22_45_36.png)
+
+
+
+### Task List
+
+- [ ] Salvare le immagini (magari su google drive)
+- [ ] Testing dell'applicazione con JUnit e Mockito 
+
+
