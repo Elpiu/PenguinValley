@@ -2,17 +2,20 @@ package com.envy.penguinvalley.web.controller;
 
 
 import com.envy.penguinvalley.bean.FakerB;
+import com.envy.penguinvalley.model.entity.Amministratore;
 import com.envy.penguinvalley.model.entity.Categoria;
 import com.envy.penguinvalley.model.entity.Pinguino;
 import com.envy.penguinvalley.model.entity.Utente;
+import com.envy.penguinvalley.model.repository.AmministratoreRepository;
 import com.envy.penguinvalley.model.repository.CategoriaRepository;
 import com.envy.penguinvalley.model.repository.UtenteRepository;
 import com.envy.penguinvalley.service.GestioneServiziService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +31,8 @@ public class ControllerFillDatabase {
     private CategoriaRepository categoriaRepository;
     @Autowired
     private UtenteRepository utenteRepository;
+    @Autowired
+    private AmministratoreRepository adminRepository;
     @Autowired
     private GestioneServiziService gestioneServiziService;
 
@@ -79,6 +84,19 @@ public class ControllerFillDatabase {
             }
         }
         return "done";
+    }
+
+    @PostMapping("/addAmministratore")
+    public ResponseEntity<Amministratore> addAdmin(
+            @RequestBody Amministratore admin){
+        return ResponseEntity.ok().body(adminRepository.save(admin));
+    }
+
+    @Autowired
+    private PasswordEncoder byCrypt;
+    @GetMapping("/byCrtpt")
+    public String getByCrtpt(@RequestParam String passw){
+        return byCrypt.encode(passw);
     }
 
 }

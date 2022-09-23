@@ -2,6 +2,7 @@ package com.envy.penguinvalley.model.entity;
 
 import com.envy.penguinvalley.regex.REGEX;
 import lombok.Data;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
@@ -20,7 +21,7 @@ public class Amministratore implements Serializable {
 
     @Pattern(regexp = REGEX.ADMIN_USERNAME_REGEX,
              message = REGEX.ADMIN_USERNAME_MESSAGES)
-    @Column(name = "username", nullable = false)
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
 
     @Pattern(regexp = REGEX.ADMIN_PASSWORD_REGEX,
