@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 @Service
 public class GestioneAmministrazioneService implements AmministrazioneService{
@@ -31,9 +30,6 @@ public class GestioneAmministrazioneService implements AmministrazioneService{
             pinguinoRepository.save(p);
         }
         else
-            //TODO Qui non cancella il dato
-            //Problema di spring
             pinguinoRepository.deleteById(p.getId());
-
     }
 }

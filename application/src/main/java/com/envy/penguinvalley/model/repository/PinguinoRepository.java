@@ -2,7 +2,9 @@ package com.envy.penguinvalley.model.repository;
 
 import com.envy.penguinvalley.model.entity.Pinguino;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,4 +28,12 @@ public interface PinguinoRepository extends JpaRepository<Pinguino, Long> {
             nativeQuery = true
     )
     public List<Pinguino> getPinguinoNotDisponibile();
+
+    @Modifying
+    @Transactional
+    @Query(
+            value = "DELETE FROM Pinguino WHERE id=?",
+            nativeQuery = true
+    )
+    public void deleteById(Long id);
 }
