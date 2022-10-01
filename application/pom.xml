@@ -49,17 +49,10 @@
             <version>2.3.0</version>
         </dependency>
 
-
         <!-- Entity Validation -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
-
-        <!-- Template engine -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
         <!-- DataBase -->
@@ -127,10 +120,7 @@
         </dependency>
         <!-- ************************** -->
 
-
-
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
